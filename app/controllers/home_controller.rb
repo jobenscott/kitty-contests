@@ -16,16 +16,19 @@ class HomeController < ApplicationController
   	if ugly_kitty.votes.nil?
   		ugly_kitty.votes = []
   		ugly_kitty.votes << address
-  		ugly_kitty.save!
   	elsif ugly_kitty.votes.excludes?(address)
   		ugly_kitty.votes << address
-  		ugly_kitty.save!
+  	else 
+  		puts 'what'
   	end
 
-  	respond_to do |format|
-  		format.js {
-  			render json: { vote_count: ugly_kitty.votes.count }
-  		}
-  	end
+  	if ugly_kitty.save!
+  		puts "yo yo"
+	  	respond_to do |format|
+	  		format.js {
+	  			render json: { vote_count: ugly_kitty.votes.count }
+	  		}
+	  	end
+	end
   end
 end

@@ -21,11 +21,12 @@
 
 jQuery(function($){
 
-	$('#kitty-vote').click(function(e){
+	$(document).on('click', '#kitty-vote', function(e){
 		e.preventDefault();
 
 		var address = $('#user-address').data('current-user-address');
 		var kitty_id = $(this).data('kitty-id');
+		var that = this;
 
 
 		$.ajax({
@@ -34,11 +35,13 @@ jQuery(function($){
 			data: { kitty_id: kitty_id, address: address },
 			success: function(data) {
 				data = JSON.parse(data);
-				$('#kitty-vote').attr('disabled','disabled');
+				console.log(data);
+				$(that).attr('disabled','disabled');
 				if(data.vote_count == 1) {
-					$('#kitty-vote').html(data.vote_count +' Vote')
+					console.log('here');
+					$(that).html(data.vote_count +' Vote')
 				} else {
-					$('#kitty-vote').html(data.vote_count +' Votes')
+					$(that).html(data.vote_count +' Votes')
 				}
 				
 			}
