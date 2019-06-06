@@ -3,13 +3,17 @@
 	<center><h1>"Only a Mother" Contestants</h1></center>
 	<br>
 	<hr>
-	<% @kitties.each do |kitty| %>
-	<div class="kitty">
-		
-		<center><img src="https://img.cryptokitties.co/0x06012c8cf97bead5deae237070f9587f8e7a266d/<%= kitty.kitty_id %>.svg"></center>
-		<center><h6>Kitty Name: <strong><a target="_blank" href="https://www.cryptokitties.co/kitty/<%= kitty.kitty_id %>" style="text-decoration: none;"><%= kitty.kitty_name %></a></strong></h6></center>
-		<center><h6>Player: <strong><a target="_blank" href="https://www.cryptokitties.co/profile/<%= kitty.address %>" style="text-decoration: none;"><%= kitty.player_name %></strong></a></h6></center>
-	</div>
-<% end %>
+	<% @kitties.each_slice(3) do |kitties| %>
+		<div class="row">
+			<% kitties.each do |kitty| %>
+				<div class="kitty col">
+					<center><img src="https://img.cryptokitties.co/0x06012c8cf97bead5deae237070f9587f8e7a266d/<%= kitty.kitty_id %>.svg"></center>
+					<center><span>Kitty Name: <strong><a target="_blank" href="https://www.cryptokitties.co/kitty/<%= kitty.kitty_id %>" style="text-decoration: none;"><%= kitty.kitty_name %></a></strong></span></center>
+					<center><span>Player: <strong><a target="_blank" href="https://www.cryptokitties.co/profile/<%= kitty.address %>" style="text-decoration: none;"><%= kitty.player_name %></strong></a></span></center>
+					<hr class="hr-color">
+				</div>
+			<% end %>
+		</div>
+	<% end %>
 </div>
 
