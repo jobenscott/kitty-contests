@@ -1,0 +1,2 @@
+class UglyKittiesTemp < ApplicationRecord
+end

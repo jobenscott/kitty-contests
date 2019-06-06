@@ -1,0 +1,2 @@
+class UglyKitty < ApplicationRecord
+end
