@@ -16,7 +16,7 @@ class HomeController < ApplicationController
   	if ugly_kitty.votes.nil?
   		ugly_kitty.votes = []
   		ugly_kitty.votes << address
-  	elsif ugly_kitty.votes.excludes?(address)
+  	elsif ugly_kitty.votes.exclude?(address)
   		ugly_kitty.votes << address
   	else 
   		puts 'what'
