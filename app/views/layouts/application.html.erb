@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
@@ -31,14 +32,18 @@
     display:inline-block;
   }
 
-  .kitty img {
+  .kitty div img {
     width: 12vw;
     filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.15));
     -webkit-filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.15));
   }
 
-  .kitty span {
+  .kitty div span {
     font-size: 1.1vmax;
+  }
+
+  .single-kitty-container {
+    min-height: 20vmax;
   }
 
   .kitty-container {
