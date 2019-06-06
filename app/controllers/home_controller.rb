@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def onlyAMother
-  	@kitties = UglyKitty.order('votes')
+  	@kitties = UglyKitty.order('votes ASC')
   end
 
   def tempRedirect
