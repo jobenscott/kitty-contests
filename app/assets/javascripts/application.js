@@ -17,3 +17,31 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+jQuery(function($){
+
+	$('#kitty-vote').click(function(e){
+		e.preventDefault();
+
+		var address = $('#user-address').data('current-user-address');
+		var kitty_id = $(this).data('kitty-id');
+
+
+		$.ajax({
+			type: 'POST',
+			url: '/home/kitty_vote',
+			data: { kitty_id: kitty_id, address: address },
+			success: function(data) {
+				data = JSON.parse(data);
+				$('#kitty-vote').attr('disabled','disabled');
+				if(data.vote_count == 1) {
+					$('#kitty-vote').html(data.vote_count +' Vote')
+				} else {
+					$('#kitty-vote').html(data.vote_count +' Votes')
+				}
+				
+			}
+		})
+	});
+});
