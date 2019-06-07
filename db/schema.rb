@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_06_170431) do
+ActiveRecord::Schema.define(version: 2019_06_07_075829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,8 @@ ActiveRecord::Schema.define(version: 2019_06_06_170431) do
     t.string "kitty_name"
     t.string "player_name"
     t.string "address"
-    t.text "votes", array: true
+    t.text "votes", default: [], array: true
+    t.integer "vote_count", default: 0
   end
 
   create_table "ugly_kitties_temps", force: :cascade do |t|
