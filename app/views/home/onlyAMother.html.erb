@@ -31,7 +31,10 @@
 							<% else %>
 								<center><button id="kitty-vote" disabled="disabled" class="btn btn-small btn-info"><%= kitty.votes.count %> <% if kitty.votes.count == 1 %>Vote<% else %> Votes <% end %></button></center>
 							<% end %>
-							
+						<% end %>
+						<br>
+						<% if !kitty.q_a.nil? %>
+							<%= link_to 'Personality Questions', ugly_kitty_path(kitty.kitty_id) %>
 						<% end %>
 					</div>
 				</div>

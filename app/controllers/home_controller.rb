@@ -4,9 +4,15 @@ class HomeController < ApplicationController
   	@kitties = UglyKitty.all.sort_by { |a| !a.votes.nil? ? a.votes.count : 0 }
 
   	@kitties = @kitties.reverse
+
   end
   def tempRedirect
   	redirect_to only_a_mother_path
+  end
+
+  def ugly_kitty
+  	@kitty = UglyKitty.find_by_kitty_id(params[:id])
+  	puts @kitty.q_a
   end
 
 
