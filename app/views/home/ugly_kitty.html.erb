@@ -1,6 +1,9 @@
 <div class="container" >
-	<div class="d-flex justify-content-center"><img style="width:25vmax;" src="https://img.cryptokitties.co/0x06012c8cf97bead5deae237070f9587f8e7a266d/<%= @kitty.kitty_id%>.svg"></div>
-	<div class="d-flex justify-content-center"><h1><%= @kitty.kitty_name %></h1></div>
+	<a href="https://www.cryptokitties.co/kitty/<%= @kitty.kitty_id %>" target="_blank" class="kitty-display-link">
+	<div class="d-flex justify-content-center"><img style="width:28.5vmax;" src="https://img.cryptokitties.co/0x06012c8cf97bead5deae237070f9587f8e7a266d/<%= @kitty.kitty_id%>.svg"></div>
+	</a>
+	<a href="https://www.cryptokitties.co/kitty/<%= @kitty.kitty_id %>" target="_blank" class="kitty-display-link">
+	<div class="d-flex justify-content-center"><h1><%= @kitty.kitty_name %></h1></div></a>
 	<br>
 	<hr>
 	<% @kitty.q_a.each do |key, value| %>
