@@ -39,15 +39,16 @@
 				</nav>
 			<% elsif key.to_i === 5 && value['info'] && value['link'] %>
 				<nav aria-label="breadcrumb">
-				  <ol class="breadcrumb" style="background-color:white !important;">
-				    <li class="breadcrumb-item active" aria-current="page"><a target="_blank" href="<%= value['link'] %>"><%= value['link'] %></a></li>
-				  </ol>
-				</nav>
-				<nav aria-label="breadcrumb">
 					  <ol class="breadcrumb" style="background-color:white !important;">
 					    <li class="breadcrumb-item active" aria-current="page"><strong>Answer: </strong><%= value['info'] %></li>
 					  </ol>
 					</nav>
+				<nav aria-label="breadcrumb">
+				  <ol class="breadcrumb" style="background-color:white !important;">
+				    <li class="breadcrumb-item active" aria-current="page"><a target="_blank" href="<%= value['link'] %>"><%= value['link'] %></a></li>
+				  </ol>
+				</nav>
+				
 			<% else %>
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb" style="background-color:white !important;">
