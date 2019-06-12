@@ -25,22 +25,23 @@
 			  </ol>
 			</nav>
 			<hr>
-		<% else %>
-		<nav aria-label="breadcrumb">
-		  <ol class="breadcrumb">
-		    <li class="breadcrumb-item active" aria-current="page"><strong>Question: </strong><%= @questions[key.to_i].question %></li>
-		  </ol>
-		</nav>
-			<% if key.to_i === 5 && value['link'] && !value['info'] %>
+		<% elsif key.to_i === 5 %>
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item active" aria-current="page"><strong>Question: </strong><%= @questions[key.to_i].question %></li>
+			  </ol>
+			</nav>
+
+			<% if value['link'] && !value['info'] %>
 				<nav aria-label="breadcrumb">
 				  <ol class="breadcrumb" style="background-color:white !important;">
 				    <li class="breadcrumb-item active" aria-current="page"><a target="_blank" href="<%= value['link'] %>"><%= value['link'] %></a></li>
 				  </ol>
 				</nav>
-			<% elsif key.to_i === 5 && value['info'] && value['link'] %>
+			<% elsif value['info'] && value['link'] %>
 				<nav aria-label="breadcrumb">
 					  <ol class="breadcrumb" style="background-color:white !important;">
-					    <li class="breadcrumb-item active" aria-current="page"><strong>Answer: </strong><%= value['info'] %></li>
+					    <li class="breadcrumb-item active" aria-current="page"><%= value['info'] %></li>
 					  </ol>
 					</nav>
 				<nav aria-label="breadcrumb">
@@ -57,6 +58,13 @@
 				</nav>
 			<% end%>
 		<hr>
+		<% else %>
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item active" aria-current="page"><strong>Question: </strong><%= @questions[key.to_i].question %></li>
+			  </ol>
+			</nav>
+			<hr>
 		<% end %>
 	<% end %>
 </div>
