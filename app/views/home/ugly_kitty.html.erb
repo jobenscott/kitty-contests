@@ -7,6 +7,24 @@
 	<br>
 	<hr>
 	<% @kitty.q_a.each do |key, value| %>
+		<% if key.to_i === 4 %>
+
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb" style="background-color:#4a4a4a !important;">
+			    <li class="breadcrumb-item active" aria-current="page" style="color:white !important;"><%= @questions[key.to_i].question %></li>
+			  </ol>
+			</nav>
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item active" aria-current="page"><strong>Question: </strong><%= value['q'] %></li>
+			  </ol>
+			</nav>
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb" style="background-color:white !important;">
+			    <li class="breadcrumb-item active" aria-current="page"><strong>Answer: </strong><%= value['a'] %></li>
+			  </ol>
+			</nav>
+		<% else %>
 		<nav aria-label="breadcrumb">
 		  <ol class="breadcrumb">
 		    <li class="breadcrumb-item active" aria-current="page"><strong>Question: </strong><%= @questions[key.to_i].question %></li>
@@ -18,5 +36,6 @@
 		  </ol>
 		</nav>
 		<hr>
+		<% end %>
 	<% end %>
 </div>
