@@ -12,6 +12,7 @@ class HomeController < ApplicationController
 
   def ugly_kitty
   	@kitty = UglyKitty.find_by_kitty_id(params[:id])
+  	@questions = UglyKittyQuestion.all
   	puts @kitty.q_a
   end
 

@@ -1,0 +1,2 @@
+class UglyKittyQuestion < ApplicationRecord
+end
