@@ -9,12 +9,12 @@
 	<% @kitty.q_a.each do |key, value| %>
 		<nav aria-label="breadcrumb">
 		  <ol class="breadcrumb">
-		    <li class="breadcrumb-item active" aria-current="page"><strong>Question: </strong><%= @questions[value['q'].to_i - 1].question %></li>
+		    <li class="breadcrumb-item active" aria-current="page"><strong>Question: </strong><%= @questions[key.to_i].question %></li>
 		  </ol>
 		</nav>
 		<nav aria-label="breadcrumb">
 		  <ol class="breadcrumb" style="background-color:white !important;">
-		    <li class="breadcrumb-item active" aria-current="page"><strong>Answer: </strong><%= value['a'] %></li>
+		    <li class="breadcrumb-item active" aria-current="page"><strong>Answer: </strong><%= value %></li>
 		  </ol>
 		</nav>
 		<hr>
