@@ -24,17 +24,26 @@
 			    <li class="breadcrumb-item active" aria-current="page"><strong>Answer: </strong><%= value['a'] %></li>
 			  </ol>
 			</nav>
+			<hr>
 		<% else %>
 		<nav aria-label="breadcrumb">
 		  <ol class="breadcrumb">
 		    <li class="breadcrumb-item active" aria-current="page"><strong>Question: </strong><%= @questions[key.to_i].question %></li>
 		  </ol>
 		</nav>
-		<nav aria-label="breadcrumb">
-		  <ol class="breadcrumb" style="background-color:white !important;">
-		    <li class="breadcrumb-item active" aria-current="page"><strong>Answer: </strong><%= value %></li>
-		  </ol>
-		</nav>
+			<% if key.to_i === 5 && value['link'] %>
+				<nav aria-label="breadcrumb">
+				  <ol class="breadcrumb" style="background-color:white !important;">
+				    <li class="breadcrumb-item active" aria-current="page"><a target="_blank" href="<%= value['link'] %>"><%= value['link'] %></a></li>
+				  </ol>
+				</nav>
+			<% else %>
+				<nav aria-label="breadcrumb">
+				  <ol class="breadcrumb" style="background-color:white !important;">
+				    <li class="breadcrumb-item active" aria-current="page"><strong>Answer: </strong><%= value %></li>
+				  </ol>
+				</nav>
+			<% end%>
 		<hr>
 		<% end %>
 	<% end %>
