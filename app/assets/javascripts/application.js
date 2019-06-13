@@ -21,6 +21,7 @@
 
 jQuery(function($){
 
+
 	$(document).on('click', '#kitty-vote', function(e){
 		e.preventDefault();
 

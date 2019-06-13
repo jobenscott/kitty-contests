@@ -5,9 +5,40 @@
 	<a href="https://www.cryptokitties.co/kitty/<%= @kitty.kitty_id %>" target="_blank" class="kitty-display-link">
 	<div class="d-flex justify-content-center"><h1><%= @kitty.kitty_name %></h1></div></a>
 	<br>
+	<% if @kitty.q_a['6'] %>
+		<div class="d-flex justify-content-center">
+			<button type="button" class="btn btn-light" data-toggle="modal" data-target="#imgModal">
+			  <%= @kitty.kitty_name %>'s Attachment
+			</button>
+		</div>
+
+
+		
+
+
+	<% end %>
 	<hr>
 	<% @kitty.q_a.each do |key, value| %>
-		<% if key.to_i === 4 %>
+
+		<% if key.to_i === 6 %>
+			<div>hi</div>
+			<div id="imgModal" class="modal fade" tabindex="-1" role="dialog">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			      </div>
+				      <div class="modal-body d-flex justify-content-center">
+				      	<%= image_tag(value['img']) %>
+				      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+
+		<% elsif key.to_i === 4 %>
 
 			<nav aria-label="breadcrumb">
 			  <ol class="breadcrumb" style="background-color:#4a4a4a !important;">
